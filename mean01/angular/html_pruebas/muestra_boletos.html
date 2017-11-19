@@ -3,23 +3,50 @@
 <html ng-app="MainApp">
 <head>
 	<title>Primer Ejemplo MEAN</title>
-	<link rel="stylesheet"  href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
-	<script src="nucleo.js"></script>
+	<script src="muestra_boletos-nucleo.js"></script>
 </head>
 
 <body ng-controller="controladorPrincipal">
 	<div class="container">
 		
-		<a href="html_pruebas/muestra_boletos.html"><button  class="btn btn-success btn-lg">Eventos Muestra</button></a>
-
-		<a href="venta_boletos/venta_boletos.html"><button>Venta voletos</button></a>
 		
-		<div class="jumbotron  text-center">
-			<h1>Nro de registros: - {{areas.length}} -</h1>
-			<legend>Autor : Guerra Guerra Jose Augusto Cesar</legend>
+
+	
+		
+		<div class="jumbotron  text-center mt-5">
+			<h1>Nro de eventos: - {{eventos.length}} -</h1>
+			<legend class="text-danger">Pag de prueba Borrar despues</legend>
 		</div>
-		<div class="row">
+
+
+		<div ng-repeat="evento in eventos" class="jumbotron  text-center">
+			<h1>{{evento.local}}- VS -{{evento.visitante}}</h1>
+			<br>
+			<h2>Lugar: {{evento.estadio}}</h2>
+			<br>
+			<h2>fecha: {{evento.fecha}}</h2>
+			<br>
+			<h3>
+				<table class="table table-striped">
+					<tr class="info">
+						<td>norte</td>
+						<td>sur</td>
+						<td>oriente</td>
+						<td>occidente</td>
+					</tr>
+					<tr ng-repeat="area in areas" ng-click="selectArea(area)">
+						<td>S/.{{ evento.Precio[0].norte }}</td>
+						<td>S/.{{ evento.Precio[0].sur }}</td>
+						<td>S/.{{ evento.Precio[0].oriente }}</td>
+						<td>S/.{{ evento.Precio[0].occidente }}</td>
+					</tr>
+				</table>				
+			</h3>
+
+		</div>
+		<!--<div class="row">
 			<div class="col-sm-6 col-sm-offset-1">
 				<table class="table table-striped">
 					<tr class="info">
@@ -41,13 +68,12 @@
 				 	<input type="text" class="form-control input-lg text-center" placeholder="Abreviatura" ng-model="newArea.Abreviatura" required>
 				 	<br>
 				 	<input type="text" class="form-control input-lg text-center" placeholder="Estado" ng-model="newArea.Estado" required>
-				 	<!--Acciones que se puede realizar en el formulario-->
 				 	<button type="submit" class="btn btn-success btn-lg" ng-click="registrarArea()" ng-disabled="myForm.$invalid || selected">Agregar</button>
 				 	<button type="submit" class="btn btn-warning btn-lg" ng-click="modificarArea(newArea)" ng-disabled="!newArea.Nombre || !newArea.Abreviatura||!newArea.Estado||!selected">Modificar</button>
 				 	<button type="submit" class="btn btn-danger btn-lg" ng-click="borrarArea(newArea)" ng-disabled="!newArea.Nombre || !newArea.Abreviatura||!newArea.Estado||!selected">Eliminar</button>
 				 </form>
 			</div>
-		</div>
+		</div>-->
 
 	</div>
 

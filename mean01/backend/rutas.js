@@ -5,6 +5,21 @@ var mainDir	="";
 
 module.exports	={
 	principal:function(app){
+		//Rutas Venta Boletos
+		app.get('/api/venta_boletos',Controlador.getVenta_boletos);
+
+		//FIN Rutas Venta Boletos
+
+
+//ruta Prueba para compra de boletos 
+	app.get('/fake/evento',Controlador.getFakeEvento);
+//FIN ruta Prueba para compra de boletos 
+
+
+
+
+
+
 		//obteniendo todas la areas
 		app.get('/api/areas',Controlador.getAreas);
 
