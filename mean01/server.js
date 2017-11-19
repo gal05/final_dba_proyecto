@@ -8,7 +8,7 @@ var	rutas		=require('./backend/rutas.js');
 
 //Configuracion
 
-mongoose.connect('mongodb://localhost:27017/Lab02',{
+mongoose.connect('mongodb://localhost:27017/proye_db',{
 	useMongoClient:true
 });
 app.use(express.static(__dirname+'/angular'));
